@@ -18,3 +18,10 @@ spec:
         name: guestbook-ui
         ports:
         - containerPort: 80
+        volumeMounts:
+          - name: bltx-pvc-volume
+            mountPath: /var/www/html  # Cambia esta ruta al directorio deseado dentro del contenedor
+      volumes:
+        - name: bltx-pvc-volume
+          persistentVolumeClaim:
+            claimName: bltx-pvc
